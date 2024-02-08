@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> JavaScript Quiz Game </title>
   <link rel="stylesheet" href="Assets/Css/style.css">
 </head>
+
 <body>
-  <div id="Quiz-container"></div>
-    <div id="High-scres-link"><a href="high-scores.html">View High Scores</a></div>
-    <h1>Coding Quiz Challenge</h1>
-    <div id="Timer">Time: <span id="Time">0</span></div>
-    <button id="Start-btn">Start Quiz</button>
-    <div id="question-container" class="hide"></div>
-    <div id="Question">Question</div>
-    <div id="Answer-buttons" class="btn-grid">
+  <div id="high-scores-link"><a href="high-scores.html">View High Scores</a></div>
+  <h1>Coding Quiz Challenge</h1>
+  <div id="timer">Time: <span id="time">0</span></div>
+  <button id="start-btn">Start Quiz</button>
+  <div id="question-container" class="hide">
+    <div id="question">Question</div>
+    <div id="answer-buttons" class="btn-grid">
       <button class="btn">Answer 1</button>
       <button class="btn">Answer 2</button>
       <button class="btn">Answer 3</button>
       <button class="btn">Answer 4</button>
+    </div>
+  </div>
+  <div id="end-screen" class="hide">
+    <h2>Your score is: <span id="final-score"></span> </h2>
 
-
+    <input type="text" id="initials" placeholder="Enter your initials">
+    <button id="save-score-btn">Save</button>
+  </div>
 
 
 
@@ -33,4 +40,5 @@
 
   <script src="Assets/Js/script.js"></script>
 </body>
+
 </html>
