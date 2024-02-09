@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded'), () => {
+document.addEventListener('DOMContentLoaded', () => {
     var startButton = document.getElementById('start-btn');
     var questionContainerElement = document.getElementById('question-container');
     var questionElement = document.getElementById('question');
@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded'), () => {
 
     let currentQuestionIndex, timerCountdown;
     let score = 0;
+    let timer;
 
-    const questions =
+    const questions = [
     {
         question: "what does 'var' stand for?",
         answers: [
@@ -20,35 +21,45 @@ document.addEventListener('DOMContentLoaded'), () => {
             { text: 'value', correct: false },
             { text: 'victory', correct: false },
             { text: 'variance', correct: false }
-        ],     
+        ]
+    },
+    {    
         question: "Wich method can be used to convert JSON data to a JavaScript object?",
         answers: [
             { text: 'JSON.parse()', correct: true },
             { text: 'JSON.stringify()', correct: false },
             { text: 'JSON.object()', correct: false },
             { text: 'JSON.toJS()', correct: false }
-        ],
+        ]
+    },
+    {
         question: "What does 'DOM' stand for?",
         answers: [
             { text: 'Document Object Model', correct: true },
             { text: 'Document Object Method', correct: false },
             { text: 'Document Object Model', correct: false },
             { text: 'Document Object Method', correct: false }
-        ],
+        ]
+    },
+    {
         question: "What does 'API' stand for?",
         answers: [
             { text: 'Application Programming Interface', correct: true },
             { text: 'Application Programming Interface', correct: false },
             { text: 'Application Programming Interface', correct: false },
             { text: 'Application Programming Interface', correct: false }
-        ],
+        ]
+    },
+    {
         question: "how do you create a promise in JavaScript?",
         answers: [
             { text: 'new Promise()', correct: true },
             { text: 'Promise()', correct: false },
             { text: 'createPromise()', correct: false },
             { text: 'promise()', correct: false }
-        ],
+        ]
+    },
+    {
         question:" how to properly access an HTML element with the ID 'demo' using JavaScript?",
         answers: [
             { text: 'document.getElementByName("demo")', correct: false },
@@ -57,8 +68,8 @@ document.addEventListener('DOMContentLoaded'), () => {
             { text: 'document.getElementByTagName("demo")', correct: false }
         ]
     }
-
-}
+    ]
+});
 
 startButton.addEventListener('click', startGame);
 
@@ -66,7 +77,9 @@ function startGame() {
     startButton.classList.add('hide');
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
+    score = 0;
     timerCountdown = 60;
+    timerDisplay.textContent = timerCountdown;
     setNextQuestion();
     startTimer();
 }
