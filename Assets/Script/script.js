@@ -166,7 +166,22 @@ document.addEventListener('DOMContentLoaded', function () {
         highScores.push(newScore);
         highScores.sort((a, b) => b.score - a.score);
         localStorage.setItem('highScores', JSON.stringify(highScores));
-        window.location.href = 'highscores.html';
+        displayHighScores(highScores);
     }
+    function displayHighScores(highScores) {
+        document.getElementById('high-scores').innerHTML = '';
+        const highScorescontainer = document.createElement('div');
+        highScorescontainer.setAttribute('id', 'high-scores-container');
+        highScorescontainer.innerHTML = '<h2>High Scores</h2>';
+        highScores.forEach((score, index) => {
+            const scoreElement = document.createElement('div');
+            scoreElement.classList.add('high-score');
+            scoreElement.innerHTML = `<span>${index + 1}. ${score.initials} - ${score.score}</span>`;
+            highScorescontainer.appendChild(scoreElement);
+        });
+        document.getElementById('question-container').appendChild(highScorescontainer);
+    }
+
+
 
 });
