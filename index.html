@@ -9,32 +9,36 @@
 </head>
 
 <body>
+  <div id="high-scores-link"><a href="highscores.html">High Scores</a></div>
 
-  <h1>Coding Quiz Challenge</h1>
-  <div id="timer">Time: <span id="time">0</span></div>
-  <button id="start-btn">Start Quiz</button>
-  <div id="question-container" class="hide">
-    <div id="question">Question</div>
-    <div id="answer-buttons" class="btn-grid">
-      <button class="btn">Answer 1</button>
-      <button class="btn">Answer 2</button>
-      <button class="btn">Answer 3</button>
-      <button class="btn">Answer 4</button>
+    <h1>Coding Quiz Challenge</h1>
+    <p>Get ready to test your coding wits against the clock! Remember, every wrong answer is a thrilling race against
+      time, setting you back by ten suspenseful seconds. Can you beat the clock and emerge as the coding champion? Let's
+      find out!</p>
+    <div id="timer">Time: <span id="time">0</span></div>
+    <button id="start-btn">Start Quiz</button>
+    <div id="question-container" class="hide">
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+      <div id="high-scores"></div>
+
+
     </div>
-    <div id="high-scores"></div>
+    <div id="end-screen" class="hide">
+      <h2>Your score is: <span id="final-score"></span> </h2>
 
-
-  </div>
-  <div id="end-screen" class="hide">
-    <h2>Your score is: <span id="final-score"></span> </h2>
-
-    <input type="text" id="initials" placeholder="Enter your initials">
-    <button id="save-score-btn">Save</button>
-  </div>
+      <input type="text" id="initials" placeholder="Enter your initials">
+      <button id="save-score-btn">Save</button>
+    </div>
 
 
 
-  <script src="Assets/Script/script.js"></script>
+    <script src="Assets/Script/script.js"></script>
 </body>
 
 </html>

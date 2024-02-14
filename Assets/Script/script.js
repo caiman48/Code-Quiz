@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var startButton = document.getElementById('start-btn');
+    var highScoresButton = document.getElementById('high-scores-link');
     var questionContainerElement = document.getElementById('question-container');
     var questionElement = document.getElementById('question');
     var answerButtonsElement = document.getElementById('answer-buttons');
@@ -36,12 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
             ]
         },
         {
-            question: "What does 'DOM' stand for?",
+            question: "What is the purpose of 'console.log' in JavaScript?",
             answers: [
-                { text: 'Document Object Model', correct: true },
-                { text: 'Document Object Method', correct: false },
-                { text: 'Document Object Model', correct: false },
-                { text: 'Document Object Method', correct: false }
+                { text: 'Logs data to the web console', correct: true },
+                { text: 'Sends a log message to a server', correct: false },
+                { text: 'Starts a new line in the code', correct: false },
+                { text: 'Calculates logarithmic operations', correct: false }
             ]
         },
         {
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     startButton.addEventListener('click', startGame);
+    highScoresButton.addEventListener('click', displayHighScores);
     saveScoreButton.addEventListener('click', saveHighScore);
 
     function startGame() {
@@ -168,18 +170,16 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('highScores', JSON.stringify(highScores));
         displayHighScores(highScores);
     }
-    function displayHighScores(highScores) {
-        document.getElementById('high-scores').innerHTML = '';
-        const highScorescontainer = document.createElement('div');
-        highScorescontainer.setAttribute('id', 'high-scores-container');
-        highScorescontainer.innerHTML = '<h2>High Scores</h2>';
+    function displayHighScores() {
+        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+        const highScoresList = document.getElementById('high-scores-list');
+        highScoresList.innerHTML = '';
         highScores.forEach((score, index) => {
             const scoreElement = document.createElement('div');
-            scoreElement.classList.add('high-score');
-            scoreElement.innerHTML = `<span>${index + 1}. ${score.initials} - ${score.score}</span>`;
-            highScorescontainer.appendChild(scoreElement);
+            scoreElement.textContent = `${index + 1}. ${score.initials} - ${score.score}`;
+            highScoresList.appendChild(scoreElement);
         });
-        document.getElementById('question-container').appendChild(highScorescontainer);
+
     }
 
 
