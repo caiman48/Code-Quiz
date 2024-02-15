@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var finalScoreElement = document.getElementById('final-score');
     var initialsInputEl = document.getElementById('initials');
     var saveScoreButton = document.getElementById('save-score-btn');
+    var highScoresList = document.getElementById('high-scores-list');
+
 
 
     let currentQuestionIndex;
@@ -131,9 +133,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             timerCountdown = Math.max(timerCountdown - 10, 0);
             timeElement.textContent = timerCountdown;
+            displayAnswerResult(false);
         } else {
 
             score++;
+            displayAnswerResult(true);
         }
         setTimeout(() => {
             if (questions.length > currentQuestionIndex + 1) {
@@ -145,6 +149,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000);
 
     }
+
+    function displayAnswerResult(isCorrect) {
+        const message = document.createElement('div');
+        message.classList.add(isCorrect ? 'correct' : 'incorrect');
+        message.textContent = isCorrect ? 'Correct!' : 'Incorrect!';
+        answerButtonsElement.appendChild(message);
+
+    }
+
     function setNextQuestion() {
         resetState();
         showQuestion(questions[currentQuestionIndex]);
@@ -157,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         finalScoreElement.textContent = score;
     }
 
+
     function saveHighScore() {
         const initials = initialsInputEl.value.trim();
         if (!initials) {
@@ -168,18 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
         highScores.push(newScore);
         highScores.sort((a, b) => b.score - a.score);
         localStorage.setItem('highScores', JSON.stringify(highScores));
-        displayHighScores(highScores);
-    }
-    function displayHighScores() {
-        const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-        const highScoresList = document.getElementById('high-scores-list');
-        highScoresList.innerHTML = '';
-        highScores.forEach((score, index) => {
-            const scoreElement = document.createElement('div');
-            scoreElement.textContent = `${index + 1}. ${score.initials} - ${score.score}`;
-            highScoresList.appendChild(scoreElement);
-        });
-
+        displayHighScores();
     }
 
 
