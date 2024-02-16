@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     startButton.addEventListener('click', startGame);
-    highScoresButton.addEventListener('click', displayHighScores);
+   
     saveScoreButton.addEventListener('click', saveHighScore);
 
     function startGame() {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 endGame();
 
             }
-        }, 1000);
+        }, 900);
     }
 
 
@@ -146,11 +146,12 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 endGame();
             }
-        }, 1000);
+        }, 900);
 
     }
 
     function displayAnswerResult(isCorrect) {
+
         const message = document.createElement('div');
         message.classList.add(isCorrect ? 'correct' : 'incorrect');
         message.textContent = isCorrect ? 'Correct!' : 'Incorrect!';
@@ -168,6 +169,11 @@ document.addEventListener('DOMContentLoaded', function () {
         questionContainerElement.classList.add('hide');
         endScreen.classList.remove('hide');
         finalScoreElement.textContent = score;
+        var paragraph = document.querySelector('p');
+        paragraph.innerText = 'You have completed the challenge!!!';
+        console.log('End of game, showing high scores.');
+        
+        
     }
 
 

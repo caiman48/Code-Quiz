@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+
     const highScoresList = document.getElementById('high-scores-list');
 
     function displayHighScores() {
@@ -12,4 +12,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     displayHighScores(); 
-});
