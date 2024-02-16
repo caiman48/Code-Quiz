@@ -1,6 +1,7 @@
+/* basic styling for the whole web */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
     color: #333;
     margin: 0;
     padding: 0;
@@ -10,38 +11,40 @@ body {
     justify-content: center;
     height: 100vh;
 }
-
+/* style for the start butoon */
 #start-btn {
     background-color: #6c63ff;
-    color: white; 
-    padding: 15px 25px; 
-    font-size: 16px; 
-    border: none; 
-    border-radius: 5px; 
+    color: white;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s; 
-    outline: none; 
-  }
-  #start-btn:active {
-    background-color: #ff69b4; 
-  }
-  #start-btn:hover {
-    background-color: #5a55e0; 
-  }
+    transition: background-color 0.3s;
+    outline: none;
+}
 
- p {
-    color: #333333; 
-  text-align: center; 
-  margin: 20px; 
-  font-size: 20px; 
-  font-weight: bold; 
-  background-color: #f8f9fa; 
-  border-radius: 10px; 
-  padding: 20px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  max-width: 900px;
-  }
+#start-btn:active {
+    background-color: #ff69b4;
+}
 
+#start-btn:hover {
+    background-color: #5a55e0;
+}
+/* style for the paragraph  */
+p {
+    color: #333333;
+    text-align: center;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+/* Link to the high socres page styling  */
 #high-scores-link a {
     position: absolute;
     top: 20px;
@@ -53,12 +56,49 @@ body {
 #high-scores-link a:hover {
     text-decoration: underline;
 }
+/* high scores list style */
+#high-scores-list {
+    text-align: center;
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
 
+#high-scores-list div {
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+/* general button styling and style for the anchor button  */
+button, .button {
+    padding: 10px 20px; 
+    margin-top: 10px; 
+    margin-right: 10px;
+    border: none; 
+    border-radius: 5px; 
+    color: #ffffff; 
+    background-color: #6c63ff; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+/* hover effects for the buttons  */
+.button:hover {
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* style for headings   */
 h1 {
     color: #333;
     margin-bottom: 20px;
 }
-
+/* timer style  */
 #timer {
     position: absolute;
     top: 20px;
@@ -66,7 +106,7 @@ h1 {
     font-size: 20px;
     font-weight: bold;
 }
-
+/* question container style  */
 #question-container {
     width: 80%;
     max-width: 600px;
@@ -77,19 +117,19 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
+/* questionn text style  */
 #question {
     font-size: 24px;
     margin-bottom: 20px;
 }
-
+/*  answer buttons grid layout  */
 .btn-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 20px;
 }
-
+/* style for the individual answer buttons  */
 .btn {
     padding: 10px 20px;
     background-color: #6200ee;
@@ -100,19 +140,19 @@ h1 {
     font-size: 18px;
     transition: background-color 0.3s ease;
 }
-
+/* hover and active state styles for buttons  */
 .btn:hover {
     background-color: #3700b3;
 }
 
 .btn:active {
-    background-color: #ff69b4; 
-  }
-
+    background-color: #ff69b4;
+}
+/* styling for the button that indicates a correct answer  */
 .btn.correct {
     background-color: #28a745;
 }
-
+/* end sreen styling  */
 #end-screen {
     display: flex;
     flex-direction: column;
@@ -120,20 +160,20 @@ h1 {
     justify-content: center;
     margin-top: 20px;
 }
-
+/* final score display styling  */
 #final-score {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
 }
-
+/* styling for the input field  */
 input[type="text"] {
     padding: 10px;
     margin-bottom: 20px;
     font-size: 18px;
     width: calc(100% - 20px);
 }
-
+/* save score button styling  */
 #save-score-btn {
     padding: 10px 20px;
     font-size: 18px;
@@ -147,9 +187,9 @@ input[type="text"] {
 #save-score-btn:hover {
     background-color: #218838;
 }
-
+/* class for showing and hide elements  */
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .feedback {
@@ -163,12 +203,12 @@ input[type="text"] {
     display: none;
 }
 
-/* Create a class that when added to an element will show it */
+
 .show {
 
     display: block;
 }
-
+/* responsive adjusments for samaller creens  */
 @media (max-width: 600px) {
     #question-container {
         width: 90%;

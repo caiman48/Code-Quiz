@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     startButton.addEventListener('click', startGame);
-   
+
     saveScoreButton.addEventListener('click', saveHighScore);
 
     function startGame() {
@@ -172,8 +172,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var paragraph = document.querySelector('p');
         paragraph.innerText = 'You have completed the challenge!!!';
         console.log('End of game, showing high scores.');
-        
-        
+        displayHighScores();
+
+
     }
 
 
@@ -188,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
         highScores.push(newScore);
         highScores.sort((a, b) => b.score - a.score);
         localStorage.setItem('highScores', JSON.stringify(highScores));
-        displayHighScores();
+        window.location.href = 'highscores.html';
     }
 
 
