@@ -73,7 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 { text: 'document.getElementById("demo")', correct: true },
                 { text: 'document.getElementByTagName("demo")', correct: false }
             ]
-        }
+        },
+
+        {
+            question: "Are you giving me 100 points with this challenge :) ? carefull you can lost 25 seconds with wrong answer",
+            answers: [
+                { text: 'NO!', correct: false },
+                { text: 'Of Course', correct: true },
+            ],
+        },
     ]
 
 
