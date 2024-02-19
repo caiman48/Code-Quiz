@@ -1,4 +1,7 @@
+// Wait until the DOM is fully loaded before running the script
 document.addEventListener('DOMContentLoaded', function () {
+    // Grab references to elements on the page
+
     var startButton = document.getElementById('start-btn');
     var highScoresButton = document.getElementById('high-scores-link');
     var questionContainerElement = document.getElementById('question-container');
@@ -13,13 +16,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var highScoresList = document.getElementById('high-scores-list');
 
 
+    // Initialize variables
 
     let currentQuestionIndex;
     let timerCountdown = 60;
     let score = 0;
     let timer;
 
+    // Questions array
+
     const questions = [
+        // Each object in this array represents a question and its answers
+        // correct: true indicates the correct answer
         {
             question: "what does 'var' stand for?",
             answers: [
@@ -84,10 +92,15 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     ]
 
+    // Event listener to start the game when the start button is clicked
 
     startButton.addEventListener('click', startGame);
 
+    // Event listener to save the high score when the save button is clicked
+
     saveScoreButton.addEventListener('click', saveHighScore);
+
+    // Function to start the game
 
     function startGame() {
         startButton.classList.add('hide');
@@ -99,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setNextQuestion();
         startTimer();
     }
+    // Function to start the countdown timer
 
     function startTimer() {
         timer = setInterval(function () {
@@ -113,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    // Function to display the current question and its answers
 
     function showQuestion(question) {
         questionElement.innerText = question.question;
@@ -127,14 +142,19 @@ document.addEventListener('DOMContentLoaded', function () {
             answerButtonsElement.appendChild(button);
         });
     }
+    // Function to clear the previous question's answers
+
     function resetState() {
 
         while (answerButtonsElement.firstChild) {
             answerButtonsElement.removeChild(answerButtonsElement.firstChild);
         }
     }
+    // Function to handle answer selection
 
     function selectAnswer(e) {
+        // Checks if selected answer is correct and updates game state accordingly
+
         const selectedButton = e.target;
         const correct = selectedButton.dataset.correct === 'true';
         if (!correct) {
@@ -157,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 900);
 
     }
+    // Function to display whether the selected answer was correct or incorrect
 
     function displayAnswerResult(isCorrect) {
 
@@ -166,11 +187,13 @@ document.addEventListener('DOMContentLoaded', function () {
         answerButtonsElement.appendChild(message);
 
     }
+    // Function to set up the next question
 
     function setNextQuestion() {
         resetState();
         showQuestion(questions[currentQuestionIndex]);
     }
+    // Function to end the game
 
     function endGame() {
         clearInterval(timer);
@@ -185,6 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
+    // Function to save the high score
 
     function saveHighScore() {
         const initials = initialsInputEl.value.trim();
