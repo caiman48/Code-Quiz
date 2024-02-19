@@ -2,6 +2,7 @@
 
 A dynamic and engaging quiz application to test your JavaScript knowledge and speed!
 
+![Captura de pantalla 2024-02-16 202230](https://github.com/caiman48/Code-Quiz/assets/102683872/62f2de84-0750-4a2b-96b5-def74987fd8b)
 
 
 # Introduction 
