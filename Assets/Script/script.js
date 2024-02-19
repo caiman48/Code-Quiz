@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         {
-            question: "Are you giving me 100 points with this challenge :) ? carefull you can lost 25 seconds with wrong answer",
+            question: "Are you giving me 100 points for  this challenge :) ? Be carefull you can lost 25 seconds with the wrong answer",
             answers: [
                 { text: 'NO!', correct: false },
                 { text: 'Of Course', correct: true },
